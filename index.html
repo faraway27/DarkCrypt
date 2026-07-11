@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DarkCrypt — Forbidden Bazaar</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet">
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=hjew1PnJvvtdQKXvGviz1KI6c_1FvI3wmUtYMAGcEsz5QHEEriEYEkG2eteGXTW7uiO2G_M-RoIuHrbYkzkt1Ew409cLG_gPuADxxvgzWbYIRC97HpNOHb04XhKmttWJ-hZKBQFHHY4uRGwN88qS8_E3lhyhsBYJlSfrv3gGgpg0W3AvmXW2TM_53vqw2tWepQSW1BMsna5RSKC2i3TbJwA8eSvBdzaXggV4KnfUq_Lyet6ekzfdvJX5o_qB309hJDPB7ZjIfqQP5xPCvUp-3qXkG346IxlvkgU6dYiJJIqxDTTlh76j1jSTmhpz7BhO-CpNJp31VCOoL4Rsv8KNy-R003-PLP44Z-2rWcQeZlTrw1H4snnVln1zoZghQ2sLAbgGqQBMh8hVlt_oOhO6m4OjRy2luQXbJGyb-iCK2epO_mA6qCytb5EHdyF20PNs8aki8YLYbuBXusFJQQU-yLvlhYZobdx9r7IM6A5Yt33h9Pr1-noc6evRUiqRF-2ShX88kW2Cg2nlsna_uKFSEjuL-9YKKuvkRNnJz8Kkr9TsJlUL1Z_AsnDA7qI3q7YEW7AxPDDKNXaHNM0TOBy1WQsyv7lFeSlQNxL9Q-OFKiZvGlVTsfMh3sMCiOKg5DTXHYM-rMtpqJSb9UI-h-VSNScnV3O74wuW5fctogif4lksogkgcy3Rqdnpzk42wXHn8XP082i8oEl07lZfgVVnhDAsVakJjbbkN8hvCi_HgWnkEnCxKKgmCfA16o7XPOg4qKkz4WHrPPMPcIJ-6bZCaBPx_RqeHx4Uvf7asaxTuG-ba2BsYsjU61_4qlrKG-UGGnnYsqRy5RRvraEKCV4zaefQWFL9hbjoW-4UeDOq7Njc34Db7UyI1WTVreONVS8gs7l-Y6Up1lB_UhYCFlPXCaHRnYcdFJggp-n6VPB6JUeYnvSBJx1msmXTqwHa9O_nu0mgHSzPN33ZnOAaDphglYdtbWayTR-dgNbB83mLgDuJD1BT3sOxyF7v-lptYT26Uod_fKkEYbd_L30C9YNOjM9BsPl03-2BAumK5s2cFLYLMMSvpp-zNCVADXnPVLDUN6TlvHx0mMJwoOQV2RuMEVaBu8D17rRzM5fMmuu8sMECT1ZK4nRjdm99nl8DFE1pj3_E602JFQD3JN_TegmUAbY1VlET3BPdNxgwU_tRQDzw7mghVhJyJYRseM_KQPbEfPXEdYPcGsEmnSEKyi0IIll7e85GCaNVqV8Lq5fHpkFlo_drsr98DS0T-rNz3pG7h0FxqTqlB6-nXAxiBVm7nyX7EkJLniP1iffRJLl5VcZfrsY12arehE0Fqb6sHcWPiP7hGkuPNJxJOo8VcgKatw" charset="UTF-8"></script><style>
+  :root{
+    --bg:#050305;
+    --panel:#0b0a0d;
+    --neon-cyan:#00ffd6;
+    --neon-pink:#ff2ed0;
+    --neon-violet:#8b3cff;
+    --goth-red:#c71f2d;
+    --muted:#9aa0a6;
+    --card-w:260px;
+    --glass: rgba(255,255,255,0.02);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(139,60,255,0.03), transparent 8%), linear-gradient(180deg,#030306 0%, #07070a 60%);font-family:'Space Mono',monospace;color:#e6eef3;overflow-y:auto;-webkit-font-smoothing:antialiased}
+  .crt{pointer-events:none;position:fixed;inset:0;z-index:9998;mix-blend-mode:overlay;opacity:0.06;background-image:linear-gradient(rgba(0,0,0,0.06) 1px, rgba(0,0,0,0) 1px);background-size:100% 3px}
+  .vignette{position:fixed;inset:0;z-index:9997;pointer-events:none;background:radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 70%);opacity:0.6}
+  #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .wrap{max-width:1200px;margin:24px auto;padding:18px;position:relative;z-index:2}
+  header{display:flex;align-items:center;gap:14px}
+  .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg, rgba(139,60,255,0.06), rgba(199,31,45,0.03));display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 10px 40px rgba(3,3,5,0.7);border:1px solid rgba(139,60,255,0.06);cursor:pointer}
+  .skull{font-size:30px;filter:drop-shadow(0 8px 20px rgba(199,31,45,0.06))}
+  h1{margin:0;font-family:'Orbitron',sans-serif;font-weight:700;font-size:20px;letter-spacing:0.6px}
+  .subtitle{color:var(--muted);font-size:13px;margin-top:4px}
+  .controls-wrap{position:sticky;top:12px;z-index:8;margin-top:12px}
+  .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.002));padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);backdrop-filter: blur(4px)}
+  .search{flex:1;min-width:220px;display:flex;align-items:center;gap:8px;background:transparent;padding:8px 10px;border-radius:10px}
+  .search input{flex:1;background:transparent;border:0;color:#eaf9fb;font-size:14px;outline:none;padding:6px;caret-color:var(--neon-pink)}
+  .chip{padding:6px 8px;border-radius:999px;background:var(--glass);font-size:12px;color:var(--muted)}
+  .filter-panel{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .select,.range{background:var(--glass);padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);color:var(--muted);font-size:13px}
+  .range input[type=range]{width:140px;accent-color:var(--neon-pink)}
+  .rating-skulls{display:flex;gap:6px;align-items:center}
+  .skull-btn{font-size:16px;cursor:pointer;opacity:0.28;filter:drop-shadow(0 4px 12px rgba(139,60,255,0.04));transition:all .18s}
+  .skull-btn.active{opacity:1;color:var(--neon-pink);transform:translateY(-2px) scale(1.06);text-shadow:0 6px 18px rgba(255,46,208,0.08)}
+  .main{margin-top:16px;display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}
+  .hero{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);box-shadow:0 8px 40px rgba(2,2,4,0.6);border:1px solid rgba(255,255,255,0.03);position:relative;overflow:hidden}
+  .market-grid{margin-top:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--card-w),1fr));gap:12px}
+  .card{width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);transform-style:preserve-3d;position:relative;overflow:hidden;min-height:260px;display:flex;flex-direction:column;gap:8px;box-shadow:0 10px 30px rgba(2,2,4,0.45);cursor:pointer}
+  .viewer{height:140px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.12));display:block;border:1px solid rgba(255,255,255,0.03)}
+  .product-name{font-family:'Orbitron';font-size:14px;color:#fff;margin-top:4px}
+  .product-desc{font-size:12px;color:var(--muted);min-height:44px}
+  .meta{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .price{font-weight:800;color:var(--neon-pink)}
+  .rating{color:var(--neon-cyan);font-size:13px}
+  .buy{padding:8px 10px;border-radius:8px;background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:#031018;border:0;cursor:pointer;font-weight:700;outline:none}
+  .buy:active{transform:scale(0.96)}
+  .hl{background:linear-gradient(90deg, rgba(255,46,208,0.15), rgba(18,255,214,0.08));color:#fff;padding:0 2px;border-radius:3px;box-shadow:0 6px 18px rgba(18,255,214,0.03);position:relative}
+  .hl::after{content:'';position:absolute;inset:0;border-radius:3px;mix-blend-mode:overlay;opacity:0.5;background:linear-gradient(90deg, rgba(255,46,208,0.04), rgba(18,255,214,0.03))}
+  .no-results{padding:40px;border-radius:10px;background:var(--glass);text-align:center;color:var(--muted);font-size:15px}
+  .gothic-title{font-family:Orbitron;color:var(--neon-violet);font-size:16px;margin:0}
+  .right-card{padding:12px;border-radius:10px;background:var(--panel);border:1px solid rgba(255,255,255,0.03)}
+  .cart-counter{position:fixed;right:18px;bottom:18px;z-index:9999;background:linear-gradient(90deg,var(--neon-pink),var(--neon-cyan));padding:10px;border-radius:999px;color:#031018;font-weight:900;box-shadow:0 12px 40px rgba(2,2,4,0.6);display:flex;align-items:center;gap:10px;cursor:pointer}
+  .cart-count{background:rgba(0,0,0,0.16);padding:6px 8px;border-radius:8px;color:#fff;font-weight:700}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+  .btn-ghost:active{transform:scale(0.98)}
+  .btn-tiny{padding:6px 8px;border-radius:8px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+  @media (max-width:1040px){.main{grid-template-columns:1fr}}
+  @media (max-width:520px){:root{--card-w:100%}.search input{font-size:13px}.viewer{height:120px}.controls{padding:8px}}
+  .search input::placeholder{color:rgba(154,160,166,0.65)}
+  #introOverlay{position:fixed;inset:0;z-index:99999;background:#030307;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#9aa0a6}
+  #introOverlay .term{font-family:Space Mono,monospace;color:var(--muted);font-size:14px;margin-top:8px;opacity:0.9}
+  .mobile-filters{display:none}
+  @media (max-width:720px){.mobile-filters{display:block}.filter-panel{display:none}.controls{padding:8px}}
+  /* product detail modal (new) */
+  .product-modal-backdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:100000;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(2,2,3,0.8));backdrop-filter: blur(6px);}
+  .product-modal{width:900px;max-width:95%;max-height:88vh;background:linear-gradient(180deg,#071018,#0b0b10);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);display:grid;grid-template-columns:420px 1fr;gap:14px;overflow:hidden}
+  .product-left{display:flex;flex-direction:column;gap:10px}
+  .product-viewer{height:360px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.12));border:1px solid rgba(255,255,255,0.03)}
+  .product-info{padding:10px;overflow:auto}
+  .product-title{font-family:Orbitron;font-size:18px;color:var(--neon-pink);margin:0 0 6px 0}
+  .product-full-desc{color:var(--muted);font-size:13px;line-height:1.4}
+  .reviews{margin-top:10px;max-height:170px;overflow:auto;padding-right:8px}
+  .review{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:8px;color:var(--muted);font-size:13px}
+  .modal-close{position:absolute;right:12px;top:10px;background:transparent;border:0;color:var(--muted);font-size:20px;cursor:pointer}
+  @media (max-width:820px){
+    .product-modal{grid-template-columns:1fr;max-height:92vh}
+    .product-viewer{height:220px}
+  }
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+<div class="crt"></div>
+<div class="vignette"></div>
+
+<div id="introOverlay" aria-hidden="false">
+  <div style="font-family:Orbitron;color:var(--neon-violet);font-size:26px">DarkCrypt</div>
+  <div class="term" id="introText">Initiating DarkCrypt access...</div>
+</div>
+
+<div class="wrap" id="app">
+  <header>
+    <div class="logo" id="skull"><div class="skull">💀</div></div>
+    <div>
+      <h1>DarkCrypt</h1>
+      <div class="subtitle">Decrypting forbidden inventory — fictional / satirical</div>
+    </div>
+  </header>
+
+  <div class="controls-wrap">
+    <div class="controls" id="controls">
+      <div class="search" title="Search items">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:0.8;margin-left:4px"><path d="M21 21l-4.35-4.35" stroke="#9aa0a6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="#9aa0a6" stroke-width="1.6"/></svg>
+        <input id="search" placeholder='Search forbidden goods (match any part — e.g. "Boost", "Memory", "Exec")' autocomplete="off" aria-label="Search items"/>
+        <div class="chip" id="resultCount" aria-live="polite">20</div>
+      </div>
+
+      <div class="filter-panel" id="filterPanel">
+        <div class="select">
+          <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:6px">Category</label>
+          <select id="categorySelect" style="background:transparent;border:0;color:var(--muted);outline:none;min-width:140px"><option value="All">All</option></select>
+        </div>
+
+        <div class="range">
+          <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:6px">Price</label>
+          <div style="display:flex;gap:8px;align-items:center">
+            <input type="range" id="priceMin" min="0" max="25000" step="50" value="0"/>
+            <input type="range" id="priceMax" min="0" max="25000" step="50" value="25000"/>
+          </div>
+          <div style="font-size:12px;color:var(--muted);margin-top:6px"><span id="priceMinLabel">0</span> — <span id="priceMaxLabel">25000</span> ✦</div>
+        </div>
+
+        <div class="select">
+          <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:6px">Min Rating</label>
+          <div class="rating-skulls" id="ratingSkulls" aria-hidden="false"></div>
+        </div>
+      </div>
+
+      <button class="btn-ghost mobile-filters" id="mobileFilterToggle">Filters</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="left">
+      <div class="hero">
+        <h2 class="gothic-title glitch" data-text="Decrypting — please wait...">Decrypting — please wait...</h2>
+        <p style="color:var(--muted);margin-top:8px">DarkCrypt hosts a curated set of fictional / satirical contraband tech. Use search + filters to probe the vault. Click the skull 5× to unlock a legend.</p>
+      </div>
+
+      <div id="market" class="market-grid" style="margin-top:14px" role="list"></div>
+
+      <div id="noResultsArea" style="display:none;margin-top:12px">
+        <div class="no-results" id="noResultsBox">No black market item found... Are you sure you're supposed to be here?</div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="right-card">
+        <div style="font-family:Orbitron;color:var(--neon-violet);margin-bottom:8px">Quick</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5">
+          Tip: search multiple tokens separated by spaces — results require all tokens (AND), and tokens match anywhere in product name/description. Use skulls for rating filtering.
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn-tiny" id="resetFilters">Reset</button>
+          <button class="btn-tiny" id="demoFilter">Demo: Brains</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="margin-top:14px">DarkCrypt — hackathon prototype — creative world-building only.</footer>
+</div>
+
+<div class="cart-counter" id="cartCounter" title="Cart (mock)">
+  <div style="font-weight:900">CART</div>
+  <div class="cart-count" id="cartCount">0</div>
+</div>
+
+<!-- Product Detail Modal -->
+<div class="product-modal-backdrop" id="productModalBackdrop" aria-hidden="true">
+  <div class="product-modal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle" id="productModal">
+    <button class="modal-close" id="productModalClose" aria-label="Close product details">✖</button>
+    <div class="product-left">
+      <div class="product-viewer" id="productViewer"></div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="chip" id="productCategory">Category</div>
+        <div style="font-size:13px;color:var(--muted)">•</div>
+        <div style="font-size:13px;color:var(--muted)" id="productRating">★ 4.4</div>
+      </div>
+    </div>
+    <div class="product-info">
+      <h3 class="product-title" id="productModalTitle">Product name</h3>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+        <div class="price" id="productPrice">0 ✦</div>
+        <div style="display:flex;gap:8px">
+          <button class="btn-tiny" id="productAddCart">Add to cart</button>
+          <button class="buy" id="productBuy">Buy</button>
+        </div>
+      </div>
+      <div class="product-full-desc" id="productFullDesc" style="margin-top:10px">Full description</div>
+
+      <div class="reviews" id="reviews" aria-live="polite" aria-atomic="false" style="margin-top:12px">
+        <!-- reviews injected here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal + raid (checkout) -->
+<div class="modal-backdrop" id="modal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;z-index:9999">
+  <div class="modal" role="dialog" aria-modal="true" style="width:420px;background:linear-gradient(180deg,#07070b,#0f0f13);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 30px 80px rgba(0,0,0,0.7)">
+    <h2 id="modal-title" style="margin:0 0 8px 0;font-family:Orbitron;color:var(--goth-red)">Secure Shadow Checkout</h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Mock checkout simulation — no real transactions.</div>
+    <div class="field"><label style="font-size:12px;color:var(--muted);">Item</label><input id="item" disabled style="width:100%;padding:10px;border-radius:8px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.04);color:#eef"/></div>
+    <div class="field"><label style="font-size:12px;color:var(--muted);">Price (DarkCredits)</label><input id="price" disabled style="width:100%;padding:10px;border-radius:8px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.04);color:#eef"/></div>
+    <div class="field"><label style="font-size:12px;color:var(--muted);">Delivery</label>
+      <select id="delivery" style="width:100%;padding:10px;border-radius:8px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.04);color:#eef">
+        <option>Neural Packet (Stealth)</option><option>Encrypted Physical Transfer</option><option>Quantum Drop (risky)</option>
+      </select>
+    </div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+      <button id="cancel" class="btn-ghost">Cancel</button>
+      <button id="confirm" class="buy">Transmit</button>
+    </div>
+  </div>
+</div>
+
+<div class="raid" id="raid" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;z-index:9999">
+  <div class="box" style="background:linear-gradient(180deg,#05060a,#0b0610);padding:28px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);text-align:center">
+    <h3 style="font-family:Orbitron;font-size:24px;color:var(--goth-red);margin:0 0 6px">TRANSMISSION INTERCEPTED</h3>
+    <p style="color:var(--muted)">Operation: Cyber Police raid in progress. Your transmission was flagged and intercepted. This prototype is fictional.</p>
+    <div style="margin-top:12px;"><button id="raid-close" style="padding:10px 12px;border-radius:8px;background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:#031018;font-weight:700;border:0">Acknowledge</button></div>
+  </div>
+</div>
+
+<!-- libs -->
+<script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+/* ===========================
+   DarkCrypt - Product detail modal + reviews
+   Merged into your existing app logic.
+   =========================== */
+
+/* ---------- keep product list ---------- */
+const PRODUCTS = [
+  { id:'p01', name:'NeuroBoost v9', category:'Brain Chips', price:7200, rating:4.7, desc:'Subcutaneous chip that accelerates memory encoding by 3×. Side-effects: déjà vu loops.', shape:'torus' },
+  { id:'p02', name:'Stolen Memory Pack — Exec', category:'Memories', price:12400, rating:4.3, desc:"Relive a corporate CEO's biggest boardroom for 60 minutes.", shape:'stackedBoxes' },
+  { id:'p03', name:'Synthetic Emotion Vial: Euphoria', category:'Emotions', price:3100, rating:4.1, desc:'Calibrated happiness for up to 12 hours. Calibration required.', shape:'glowingSphere' },
+  { id:'p04', name:'ShadowKey — Retinal', category:'Security', price:21000, rating:3.8, desc:"Replace biometric locks with a single retinal signature. Optional 'backdoor'.", shape:'eye' },
+  { id:'p05', name:'DreamSiphon v2', category:'Harvesters', price:8500, rating:4.5, desc:'Harvest dreams for experiential ads and high fidelity replay.', shape:'ringedTorus' },
+  { id:'p06', name:'Persona Swap', category:'Identity', price:5600, rating:3.9, desc:'Temporary persona overlays with accent & micro-behaviour scripts.', shape:'stackedBoxesAlt' },
+  { id:'p07', name:'Memory Eraser', category:'Memories', price:9900, rating:3.5, desc:'Erase a single 24-hour memory with high precision.', shape:'glowingSphereAlt' },
+  { id:'p08', name:'Holo-Proxy', category:'Security', price:4300, rating:4.0, desc:'Temporary holographic identity projection for safe evasion.', shape:'torus' },
+  { id:'p09', name:'Synaptic Tuner', category:'Brain Chips', price:6400, rating:4.6, desc:'Fine-tunes neurotransmitter gain for better focus.', shape:'torus' },
+  { id:'p10', name:'Emotion Dampener', category:'Emotions', price:2750, rating:3.6, desc:'Lower the intensity of unwanted emotions for a day.', shape:'glowingSphere' },
+  { id:'p11', name:'Blackout Injector', category:'Tools', price:4200, rating:3.2, desc:'Short EMP spike to disable consumer electronics in a 5m radius.', shape:'ringedTorus' },
+  { id:'p12', name:'RetroUpload Pack', category:'Memories', price:1500, rating:4.2, desc:'Pack of curated retro memories — 80s neon nights included.', shape:'stackedBoxes' },
+  { id:'p13', name:'MirrorMask', category:'Identity', price:3200, rating:3.8, desc:'Facial micro-perturbation skin overlay for surveillance confusion.', shape:'stackedBoxesAlt' },
+  { id:'p14', name:'EchoPatch', category:'Tools', price:950, rating:2.9, desc:'Disposable audio masker for local voice obfuscation.', shape:'glowingSphereAlt' },
+  { id:'p15', name:'NeuroScribe', category:'Brain Chips', price:17800, rating:4.9, desc:'Persistent neural logger for lifelong memory backup (beta).', shape:'torus' },
+  { id:'p16', name:'MoodRack', category:'Emotions', price:720, rating:2.6, desc:'Low-cost emotion sampler for roleplay sessions.', shape:'glowingSphere' },
+  { id:'p17', name:'Quantum Dropbox Key', category:'Security', price:11900, rating:4.4, desc:'One-time quantum key for secure parcel exchange.', shape:'ringedTorus' },
+  { id:'p18', name:'PersonaCore', category:'Identity', price:13400, rating:4.1, desc:'Multi-hour persona core with accent micro-tuning.', shape:'stackedBoxes' },
+  { id:'p19', name:'Black Market Lorebook', category:'Misc', price:450, rating:3.7, desc:'Encrypted anthology of market rumors & vendor runes.', shape:'stackedBoxesAlt' },
+  { id:'p20', name:'RetroSynth Patch', category:'Tools', price:2100, rating:3.4, desc:'Analog-sounding neural patch for vintage dream synthesis.', shape:'glowingSphereAlt' }
+];
+
+/* ---------- UI refs (reusing your refs) ---------- */
+const marketEl = document.getElementById('market');
+const searchInput = document.getElementById('search');
+const categorySelect = document.getElementById('categorySelect');
+const priceMinEl = document.getElementById('priceMin');
+const priceMaxEl = document.getElementById('priceMax');
+const priceMinLabel = document.getElementById('priceMinLabel');
+const priceMaxLabel = document.getElementById('priceMaxLabel');
+const ratingSkulls = document.getElementById('ratingSkulls');
+const resultCount = document.getElementById('resultCount');
+const noResultsArea = document.getElementById('noResultsArea');
+const noResultsBox = document.getElementById('noResultsBox');
+const skullElem = document.getElementById('skull');
+const introOverlay = document.getElementById('introOverlay');
+const introText = document.getElementById('introText');
+const cartCountEl = document.getElementById('cartCount');
+const cartCounter = document.getElementById('cartCounter');
+const mobileFilterToggle = document.getElementById('mobileFilterToggle');
+const filterPanelEl = document.getElementById('filterPanel');
+const resetFilters = document.getElementById('resetFilters');
+const demoFilter = document.getElementById('demoFilter');
+
+const productModalBackdrop = document.getElementById('productModalBackdrop');
+const productModal = document.getElementById('productModal');
+const productModalClose = document.getElementById('productModalClose');
+const productViewerEl = document.getElementById('productViewer');
+const productModalTitle = document.getElementById('productModalTitle');
+const productPrice = document.getElementById('productPrice');
+const productCategory = document.getElementById('productCategory');
+const productRating = document.getElementById('productRating');
+const productFullDesc = document.getElementById('productFullDesc');
+const reviewsEl = document.getElementById('reviews');
+const productAddCartBtn = document.getElementById('productAddCart');
+const productBuyBtn = document.getElementById('productBuy');
+
+/* ---------- helpers ---------- */
+function escapeHtml(s){
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;')
+    .replace(/`/g,'&#96;');
+}
+function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+
+/* ---------- categories init ---------- */
+const CATS = ['All', ...Array.from(new Set(PRODUCTS.map(p=>p.category)))];
+CATS.forEach(c => {
+  const opt = document.createElement('option'); opt.value = c; opt.textContent = c; categorySelect.appendChild(opt);
+});
+
+/* ---------- price init ---------- */
+const prices = PRODUCTS.map(p=>p.price);
+const globalMin = Math.min(...prices);
+const globalMax = Math.max(...prices);
+priceMinEl.min = globalMin; priceMinEl.max = globalMax; priceMinEl.value = globalMin;
+priceMaxEl.min = globalMin; priceMaxEl.max = globalMax; priceMaxEl.value = globalMax;
+priceMinLabel.innerText = globalMin; priceMaxLabel.innerText = globalMax;
+
+/* ---------- rating skulls ---------- */
+let activeMinRating = 0;
+function buildSkulls(){
+  ratingSkulls.innerHTML = '';
+  for(let i=1;i<=5;i++){
+    const s = document.createElement('span');
+    s.className = 'skull-btn'; s.dataset.value = i; s.innerHTML = '💀'; s.title = i + '★+';
+    s.addEventListener('click', ()=> {
+      activeMinRating = (activeMinRating === i) ? 0 : i;
+      updateSkulls(); applyFilters();
+      gsap.fromTo(s,{scale:0.92,opacity:0.6},{scale:1.06,opacity:1,duration:0.22,ease:'power2.out'});
+    });
+    s.addEventListener('mouseenter', ()=> {
+      const nodes = ratingSkulls.querySelectorAll('.skull-btn');
+      nodes.forEach(n => { if(parseInt(n.dataset.value) <= i) n.style.opacity = '0.9'; });
+    });
+    s.addEventListener('mouseleave', ()=> updateSkulls());
+    ratingSkulls.appendChild(s);
+  }
+  updateSkulls();
+}
+function updateSkulls(){
+  ratingSkulls.querySelectorAll('.skull-btn').forEach(n=>{
+    const v = parseInt(n.dataset.value);
+    if(activeMinRating && v <= activeMinRating) n.classList.add('active'); else n.classList.remove('active');
+  });
+}
+buildSkulls();
+
+/* ---------- search highlight ---------- */
+function highlightMatches(text, query){
+  if(!query) return escapeHtml(text);
+  const tokens = query.split(/\s+/).map(t=>t.trim()).filter(Boolean).filter(t => t.length > 1 || query.length === 1);
+  if(tokens.length === 0) return escapeHtml(text);
+  const pattern = tokens.map(t => escapeRegex(t)).join('|');
+  const re = new RegExp(pattern, 'ig');
+  let lastIndex = 0;
+  let out = '';
+  for(const m of text.matchAll(re)){
+    const idx = m.index;
+    if(idx === undefined) continue;
+    out += escapeHtml(text.slice(lastIndex, idx));
+    out += '<span class="hl">' + escapeHtml(m[0]) + '</span>';
+    lastIndex = idx + m[0].length;
+  }
+  out += escapeHtml(text.slice(lastIndex));
+  return out;
+}
+
+/* ---------- lazy 3D viewers (IntersectionObserver) ---------- */
+const viewerMap = new WeakMap();
+const IO_ROOT_MARGIN = '400px';
+const IO_THRESHOLD = 0.05;
+const viewerObserver = new IntersectionObserver((entries)=>{
+  for(const e of entries){
+    const el = e.target;
+    if(e.isIntersecting){
+      if(!viewerMap.has(el)){
+        const shape = el.dataset.shape || 'torus';
+        const inst = initViewer(el, shape);
+        viewerMap.set(el, inst);
+      } else {
+        const inst = viewerMap.get(el);
+        if(inst && inst.start) inst.start();
+      }
+    } else {
+      if(viewerMap.has(el)){
+        const inst = viewerMap.get(el);
+        if(inst && inst.dispose){
+          inst.dispose();
+          viewerMap.delete(el);
+        }
+      }
+    }
+  }
+}, { root: null, rootMargin: IO_ROOT_MARGIN, threshold: IO_THRESHOLD });
+
+/* ---------- three helpers ---------- */
+function safeDispose(obj){
+  if(!obj) return;
+  try{
+    if(obj.geometry){ obj.geometry.dispose && obj.geometry.dispose(); }
+    if(obj.material){
+      if(Array.isArray(obj.material)){
+        obj.material.forEach(m=>{
+          if(m.map) m.map.dispose && m.map.dispose();
+          if(m.dispose) m.dispose();
+        });
+      } else {
+        if(obj.material.map) obj.material.map.dispose && obj.material.map.dispose();
+        obj.material.dispose && obj.material.dispose();
+      }
+    }
+  }catch(e){}
+}
+function createNeonMaterial(colorHex){
+  return new THREE.MeshStandardMaterial({
+    color: colorHex,
+    emissive: colorHex,
+    emissiveIntensity:0.9,
+    metalness:0.35,
+    roughness:0.15,
+    transparent:true,
+    opacity:0.98
+  });
+}
+function addGlowSprite(group, color=0x8b3cff, intensity=0.12){
+  const canvas = document.createElement('canvas'); canvas.width=64; canvas.height=64; const ctx = canvas.getContext('2d');
+  const grd = ctx.createRadialGradient(32,32,2,32,32,32); const colorStr = '#' + color.toString(16).padStart(6,'0');
+  grd.addColorStop(0,colorStr); grd.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle = grd; ctx.fillRect(0,0,64,64);
+  const tex = new THREE.CanvasTexture(canvas);
+  const spr = new THREE.Sprite(new THREE.SpriteMaterial({map:tex, color:0xffffff, blending:THREE.AdditiveBlending, opacity:intensity}));
+  spr.scale.set(1.6,1.6,1.6); group.add(spr);
+}
+
+/* ---------- initViewer (same as before) ---------- */
+function initViewer(el, shape='torus'){
+  const w = el.clientWidth || 260; const h = el.clientHeight || 140;
+  const renderer = new THREE.WebGLRenderer({alpha:true, antialias:true});
+  // reduce pixelRatio on narrow screens for perf
+  const smallScreen = window.innerWidth < 720;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, smallScreen ? 1 : 2));
+  renderer.setSize(w,h); renderer.outputEncoding = THREE.sRGBEncoding;
+  el.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, w/h, 0.1, 100); camera.position.set(0, 0.6, 2.6);
+  const hemi = new THREE.HemisphereLight(0x222233, 0x000000, 0.6); scene.add(hemi);
+  const dir = new THREE.DirectionalLight(0xffffff, 0.6); dir.position.set(5,5,5); scene.add(dir);
+  const rim = new THREE.PointLight(0xff2ed0, 0.6, 6); rim.position.set(-2,1.5,2); scene.add(rim);
+  const container = new THREE.Group(); scene.add(container);
+
+  let mesh;
+  if(shape==='torus'){ const g = new THREE.TorusKnotGeometry(0.45,0.12,120,16); mesh = new THREE.Mesh(g, createNeonMaterial(0x00ffd6)); container.add(mesh); }
+  else if(shape.includes('stackedBoxes')){ const group = new THREE.Group(); const colors = shape==='stackedBoxes'? [0xff2ed0,0x00ffd6,0xff9b3d] : [0x00ffd6,0xff2ed0,0x8bff7a]; for(let i=0;i<3;i++){ const geo=new THREE.BoxGeometry(0.7-i*0.12,0.18,0.5-i*0.1); const m=new THREE.Mesh(geo,createNeonMaterial(colors[i])); m.position.set(0,-0.08+i*0.16,-i*0.02); group.add(m);} mesh=group; container.add(mesh); }
+  else if(shape.includes('glowingSphere')){ const g=new THREE.SphereGeometry(0.42,48,32); mesh=new THREE.Mesh(g, createNeonMaterial(shape==='glowingSphere'?0xff9b3d:0xff2ed0)); const wire=new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.46,2)), new THREE.LineBasicMaterial({color:0x00ffd6, transparent:true, opacity:0.16})); mesh.add(wire); container.add(mesh); }
+  else if(shape==='eye'){ const iris=new THREE.TorusGeometry(0.46,0.12,32,80); const irisMesh=new THREE.Mesh(iris,createNeonMaterial(0x00ffd6)); irisMesh.rotation.x=Math.PI/2; const pupil=new THREE.Mesh(new THREE.SphereGeometry(0.18,32,24), createNeonMaterial(0x0a0a0a)); pupil.position.set(0,0,-0.08); const outer=new THREE.Mesh(new THREE.SphereGeometry(0.52,32,24), new THREE.MeshStandardMaterial({color:0xffffff,opacity:0.06,transparent:true,roughness:0.1})); outer.material.depthWrite=false; container.add(irisMesh,pupil,outer); }
+  else if(shape==='ringedTorus'){ const g=new THREE.TorusGeometry(0.36,0.08,32,120); mesh=new THREE.Mesh(g,createNeonMaterial(0xff2ed0)); container.add(mesh); const ringGeo=new THREE.RingGeometry(0.6,0.9,64); const ring=new THREE.Mesh(ringGeo,new THREE.MeshBasicMaterial({color:0x00ffd6,side:THREE.DoubleSide,transparent:true,opacity:0.08})); ring.rotation.x=Math.PI/2; container.add(ring); }
+  else { const g = new THREE.TorusKnotGeometry(0.45,0.12,120,16); mesh = new THREE.Mesh(g, createNeonMaterial(0x00ffd6)); container.add(mesh); }
+
+  addGlowSprite(container, 0x8b3cff, 0.12);
+  const ground=new THREE.Mesh(new THREE.PlaneGeometry(3,3), new THREE.MeshStandardMaterial({color:0x000000, roughness:1, metalness:0, opacity:0.06, transparent:true})); ground.rotation.x=-Math.PI/2; ground.position.y=-0.5; scene.add(ground);
+
+  const controls = new THREE.OrbitControls(camera, renderer.domElement); controls.enableZoom=false; controls.enablePan=false; controls.enableDamping=true; controls.dampingFactor=0.07;
+
+  let hover=false, pointerDown=false, rot=0;
+  function onEnter(){ hover=true; } function onLeave(){ hover=false; }
+  function onPointerDown(){ pointerDown=true; } function onPointerUp(){ pointerDown=false; }
+  el.addEventListener('mouseenter', onEnter); el.addEventListener('mouseleave', onLeave);
+  el.addEventListener('pointerdown', onPointerDown); window.addEventListener('pointerup', onPointerUp);
+
+  const ro = new ResizeObserver(()=>{ const w2=el.clientWidth||260; const h2=el.clientHeight||140; camera.aspect=w2/h2; camera.updateProjectionMatrix(); renderer.setSize(w2,h2); });
+  ro.observe(el);
+
+  let rafId = null;
+  const tick = ()=>{
+    if(!pointerDown){ rot += (hover?0.01:0.004); container.rotation.y = rot; container.rotation.x = Math.sin(rot*0.26)*0.06; }
+    controls.update(); renderer.render(scene,camera);
+    rafId = requestAnimationFrame(tick);
+  };
+
+  function start(){ if(!rafId) tick(); }
+  function stop(){ if(rafId){ cancelAnimationFrame(rafId); rafId = null; } }
+
+  function dispose(){
+    stop();
+    try{ ro.disconnect(); }catch(e){}
+    el.removeEventListener('mouseenter', onEnter); el.removeEventListener('mouseleave', onLeave);
+    el.removeEventListener('pointerdown', onPointerDown); window.removeEventListener('pointerup', onPointerUp);
+    scene.traverse(obj => { if(obj.isMesh) safeDispose(obj); });
+    try{
+      if(renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
+      if(renderer.forceContextLoss) renderer.forceContextLoss();
+      renderer.dispose && renderer.dispose();
+    }catch(e){}
+  }
+  start();
+  return { renderer, scene, camera, dispose, start, stop, ro };
+}
+
+/* ---------- render products ---------- */
+function generateCardHTML(item, q){
+  const nameHTML = highlightMatches(item.name, q);
+  const descHTML = highlightMatches(item.desc, q);
+  const stars = '★'.repeat(Math.round(item.rating));
+  return `
+  <div class="card" data-id="${item.id}" role="listitem">
+    <div class="viewer" data-shape="${item.shape}"></div>
+    <div class="product-name">${nameHTML}</div>
+    <div class="product-desc">${descHTML}</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+      <div>
+        <div class="rating">${stars} <span style="font-size:12px;color:var(--muted)">${item.rating.toFixed(1)}</span></div>
+        <div class="price">${item.price.toLocaleString()} ✦</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+        <div class="chip" style="font-size:12px">${escapeHtml(item.category)}</div>
+        <button class="buy" data-id="${item.id}" data-name="${escapeHtml(item.name)}" data-price="${item.price}" aria-label="Buy ${escapeHtml(item.name)}">Buy</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderProducts(list, q=''){
+  // dispose any existing observed viewers on DOM
+  try {
+    const existingViewers = Array.from(document.querySelectorAll('.viewer'));
+    existingViewers.forEach(v => {
+      if(viewerMap.has(v)){
+        const inst = viewerMap.get(v);
+        inst.dispose();
+        viewerMap.delete(v);
+      }
+    });
+  } catch (e) {}
+
+  marketEl.innerHTML = list.map(i => generateCardHTML(i, q)).join('');
+  resultCount.innerText = list.length;
+  if(list.length===0){
+    noResultsArea.style.display='block';
+    if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+      gsap.fromTo('#noResultsBox',{opacity:0,y:8,filter:'blur(6px)'},{opacity:1,y:0,filter:'blur(0px)',duration:0.6,ease:'power2.out'});
+      gsap.to('#noResultsBox',{textShadow:'0 8px 40px rgba(199,31,45,0.12)',repeat:4,yoyo:true,duration:0.18});
+    }
+  } else { noResultsArea.style.display='none'; }
+
+  // attach buy handlers & card click handlers
+  Array.from(document.querySelectorAll('.buy')).forEach(b => {
+    b.addEventListener('click', (ev) => {
+      ev.stopPropagation(); // prevent card click opening modal
+      const id = b.dataset.id; const item = PRODUCTS.find(p=>p.id===id);
+      cartAdd(item);
+      // open checkout modal (also let user confirm)
+      // small animation then open checkout
+      gsap.fromTo(b, {scale:0.92},{scale:1,duration:0.28,ease:'back.out(1.2)', onComplete:()=> openModal(item) });
+    });
+  });
+
+  // clicking card (except buy) opens product detail modal
+  Array.from(document.querySelectorAll('.card')).forEach(card=>{
+    card.addEventListener('click', (ev)=>{
+      // ignore clicks on buy etc
+      const btn = ev.target.closest('button');
+      if(btn) return;
+      const id = card.dataset.id; const item = PRODUCTS.find(p=>p.id===id);
+      openProductModal(item);
+    });
+  });
+
+  // observe viewers for lazy init
+  Array.from(document.querySelectorAll('.viewer')).forEach(v => {
+    viewerObserver.observe(v);
+  });
+
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    gsap.from('.card', {y:18, opacity:0, stagger:0.04, duration:0.6, ease:'power3.out'});
+  }
+}
+
+/* ---------- filters logic ---------- */
+function applyFilters(){
+  const q = (searchInput.value || '').trim().toLowerCase();
+  const category = categorySelect.value;
+  const minP = parseInt(priceMinEl.value);
+  const maxP = parseInt(priceMaxEl.value);
+  const minRating = activeMinRating || 0;
+  const tokens = q.length ? q.split(/\s+/).map(t=>t.trim()).filter(Boolean) : [];
+  const results = PRODUCTS.filter(p=>{
+    if(category !== 'All' && p.category !== category) return false;
+    if(p.price < minP || p.price > maxP) return false;
+    if(p.rating < minRating) return false;
+    if(tokens.length){
+      const hay = (p.name + ' ' + p.desc + ' ' + p.category).toLowerCase();
+      const ok = tokens.every(t => hay.includes(t));
+      if(!ok) return false;
+    }
+    return true;
+  });
+  renderProducts(results, q);
+}
+
+/* ---------- initial render ---------- */
+renderProducts(PRODUCTS);
+
+/* ---------- search debounce ---------- */
+let searchTimer = null;
+searchInput.addEventListener('input', ()=> {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(()=> applyFilters(), 160);
+});
+categorySelect.addEventListener('change', applyFilters);
+
+/* ---------- cart (mock) ---------- */
+let cartCount = 0;
+function cartAdd(item){
+  cartCount++; cartCountEl.innerText = cartCount;
+  gsap.fromTo(cartCounter, {scale:0.96},{scale:1,duration:0.36,ease:'elastic.out(1,0.6)'});
+  const t = document.createElement('div'); t.style.position='fixed'; t.style.right='22px'; t.style.bottom='80px'; t.style.zIndex=99999; t.style.background='linear-gradient(90deg,var(--neon-pink),var(--neon-cyan))'; t.style.color='#031018'; t.style.padding='8px 12px'; t.style.borderRadius='8px'; t.style.fontWeight='700'; t.innerText = 'Queued: ' + item.name;
+  document.body.appendChild(t);
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    gsap.fromTo(t, {y:20, opacity:0}, {y:0, opacity:1, duration:0.26, ease:'power2.out'});
+    setTimeout(()=> gsap.to(t, {opacity:0, y:-8, duration:0.36, onComplete: ()=> t.remove()}), 1400);
+  } else {
+    setTimeout(()=> t.remove(), 1200);
+  }
+}
+
+/* ---------- checkout modal ---------- */
+function openModal(item){
+  document.getElementById('item').value = item.name;
+  document.getElementById('price').value = item.price + ' ✦';
+  document.getElementById('modal').style.display = 'flex';
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    gsap.fromTo('.modal',{scale:0.94, opacity:0},{scale:1, opacity:1, duration:0.45, ease:'elastic.out(1,0.6)'});
+  }
+}
+document.getElementById('cancel').addEventListener('click', ()=> document.getElementById('modal').style.display='none');
+document.getElementById('confirm').addEventListener('click', ()=>{
+  const b = document.getElementById('confirm'); b.disabled = true; b.innerText = 'Transmitting...';
+  setTimeout(()=> { document.getElementById('modal').style.display='none'; b.disabled=false; b.innerText='Transmit'; if(Math.random()<0.86) showRaid(); else alert('Transmission complete — mock delivery queued.'); }, 1200);
+});
+function showRaid(){ document.getElementById('raid').style.display='flex'; if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches) gsap.fromTo('#raid .box',{scale:0.92,opacity:0},{scale:1,opacity:1,duration:0.46,ease:'back.out(1.2)'}); }
+document.getElementById('raid-close').addEventListener('click', ()=> document.getElementById('raid').style.display='none');
+
+/* ---------- skull easter egg ---------- */
+let skullClicks = 0;
+skullElem.addEventListener('click', ()=>{
+  skullClicks++;
+  skullElem.animate([{transform:'rotate(-6deg)'},{transform:'rotate(6deg)'},{transform:'rotate(0deg)'}],{duration:360});
+  if(skullClicks >= 5){
+    skullClicks = 0;
+    revealHiddenProduct();
+  }
+});
+function revealHiddenProduct(){
+  const hidden = { id:'vault- relic-'+Date.now(), name:'Vault Relic — Soul Cipher', category:'Mystic', price:77777, rating:5.0, desc:'A mythic cipher once used to bind thoughts to metal. Purely fictional.', shape:'torus' };
+  PRODUCTS.unshift(hidden);
+  gsap.fromTo('.wrap',{y:-6},{y:0,duration:0.3,ease:'elastic.out(1,0.6)'});
+  renderProducts(PRODUCTS);
+  // toast instead of alert
+  const t = document.createElement('div'); t.style.position='fixed'; t.style.left='50%'; t.style.top='18px'; t.style.transform='translateX(-50%)'; t.style.zIndex=99999; t.style.background='linear-gradient(90deg,var(--neon-pink),var(--neon-cyan))'; t.style.color='#031018'; t.style.padding='10px 16px'; t.style.borderRadius='10px'; t.style.fontWeight='800'; t.innerText = 'Vault door opened — Vault Relic added.';
+  document.body.appendChild(t);
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    gsap.fromTo(t,{y:-12, opacity:0},{y:0, opacity:1, duration:0.36, ease:'power2.out'});
+    setTimeout(()=> gsap.to(t,{opacity:0, y:-12, duration:0.36, onComplete: ()=> t.remove()}), 2200);
+  } else { setTimeout(()=> t.remove(), 2200); }
+}
+
+/* ---------- mobile filter toggle ---------- */
+mobileFilterToggle.addEventListener('click', ()=>{
+  if(filterPanelEl.style.display === 'block'){ filterPanelEl.style.display='none'; mobileFilterToggle.innerText='Filters'; }
+  else { filterPanelEl.style.display='block'; mobileFilterToggle.innerText='Close'; }
+});
+window.addEventListener('resize', ()=> {
+  if(window.innerWidth > 720){
+    filterPanelEl.style.display = '';
+    mobileFilterToggle.innerText = 'Filters';
+  }
+});
+
+/* ---------- reset + demo ---------- */
+resetFilters.addEventListener('click', ()=>{
+  searchInput.value=''; categorySelect.value='All'; priceMinEl.value = globalMin; priceMaxEl.value = globalMax; priceMinLabel.innerText=globalMin; priceMaxLabel.innerText=globalMax; activeMinRating=0; updateSkulls(); applyFilters();
+});
+demoFilter.addEventListener('click', ()=> { categorySelect.value='Brain Chips'; applyFilters(); });
+
+/* ---------- intro sequence ---------- */
+function runIntro(){
+  const lines = [
+    'Initiating DarkCrypt access...',
+    'Authenticating keys...',
+    'Decrypting forbidden inventory...',
+    'Syncing holographic displays...',
+    'Access Granted.'
+  ];
+  let idx=0;
+  introOverlay.style.display='flex';
+  introOverlay.setAttribute('aria-hidden', 'false');
+  function nextLine(){
+    if(idx >= lines.length){ if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){ gsap.to(introOverlay,{opacity:0,duration:0.6,onComplete:()=> { introOverlay.remove(); }});} else { introOverlay.remove(); } const hero = document.querySelector('.gothic-title'); if(hero) hero.textContent = 'Welcome — the vault is open.'; return; }
+    introText.textContent = lines[idx++]; if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches) gsap.fromTo(introText, {opacity:0,y:6},{opacity:1,y:0,duration:0.46,ease:'power2.out'});
+    setTimeout(nextLine, 700 + Math.random()*500);
+  }
+  nextLine();
+}
+runIntro();
+
+/* ---------- particles background ---------- */
+(function particles(){
+  const canvas = document.getElementById('particles'); const ctx = canvas.getContext('2d');
+  let w = canvas.width = innerWidth, h = canvas.height = innerHeight;
+  window.addEventListener('resize', ()=> { w = canvas.width = innerWidth; h = canvas.height = innerHeight; init(); });
+  const count = Math.floor(Math.max(40, Math.min(120, (w*h)/9000)));
+  let items = [];
+  function rand(a,b){ return a + Math.random()*(b-a); }
+  function init(){ items = []; for(let i=0;i<count;i++){ items.push({ x: Math.random()*w, y: Math.random()*h, r: rand(0.3,1.6), vx: rand(-0.05,0.05), vy: rand(-0.02,0.02), alpha: rand(0.04,0.16) }); } }
+  function tick(){ ctx.clearRect(0,0,w,h); for(const it of items){ it.x += it.vx; it.y += it.vy; if(it.x < -10) it.x = w+10; if(it.x > w+10) it.x = -10; if(it.y < -10) it.y = h+10; if(it.y > h+10) it.y = -10; ctx.beginPath(); ctx.fillStyle = `rgba(139,60,255,${it.alpha})`; ctx.arc(it.x, it.y, it.r, 0, Math.PI*2); ctx.fill(); } requestAnimationFrame(tick); }
+  init(); tick();
+})();
+
+/* ---------- product detail modal: reviews pool & generator ---------- */
+const REVIEW_POOL = [
+  "Worked great… until it started rewriting my dreams. – @sleephacker_88",
+  "Encrypted my heart and my bank account. 10/10. – @bytebabe",
+  "Installed it. Now I can see ghosts in the Wi‑Fi. – @glitchseer",
+  "Seller refused refund after device became self-aware. – @NullVoid",
+  "Painful at first… then strangely pleasant. – @bio_mod_guy",
+  "The memory pack had a phantom handshake. Would buy again. – @neuronomad",
+  "Calibration warning ignored — felt like déjà vu for hours. – @replay_junkie",
+  "Perfect for roleplay; not recommended for your actual brain. – @theatre_hack",
+  "It hummed lullabies at 3AM. Highly recommend with earplugs. – @midnight_patch",
+  "Delivered as promised. The aftertaste is optional. – @cryptoshade",
+  "Lost two emails and gained a memory of my childhood. – @retro_bug",
+  "The seller included a poem in the firmware. 5 stars. – @verse_keeper",
+  "Made my focus surgical. Also made me crave old vinyl. – @analog_ghost",
+  "Took my sadness and converted it into a color. – @chromamind",
+  "Soldier-grade. Do not use near delicate relationships. – @field_test",
+  "I woke up with someone else's accent. Fun. – @voxshift",
+  "It sings to me now. Not sure if it's meant to. – @cant_resist",
+  "Minor glitch: phone started remembering my dreams. – @sync_error",
+  "Bought for nostalgia, traded for secrets. – @rumor_monger",
+  "Creepy but efficient. Warranty: void if you blink in public. – @warranty_void"
+];
+
+function getRandomReviews(n){
+  const pool = [...REVIEW_POOL];
+  const out = [];
+  for(let i=0;i<n;i++){
+    if(pool.length === 0) break;
+    const idx = Math.floor(Math.random()*pool.length);
+    out.push(pool.splice(idx,1)[0]);
+  }
+  return out;
+}
+
+/* modal three viewer (separate instance, created on demand) */
+let productViewerInstance = null;
+function createProductViewer(shape='torus'){
+  // clear existing
+  if(productViewerInstance){
+    try{ productViewerInstance.dispose(); }catch(e){}
+    productViewerInstance = null;
+    productViewerEl.innerHTML = '';
+  }
+  // create new viewer (bigger)
+  const w = productViewerEl.clientWidth || 420; const h = productViewerEl.clientHeight || 360;
+  const renderer = new THREE.WebGLRenderer({alpha:true, antialias:true});
+  const smallScreen = window.innerWidth < 720;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, smallScreen ? 1 : 2));
+  renderer.setSize(w,h); renderer.outputEncoding = THREE.sRGBEncoding;
+  productViewerEl.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, w/h, 0.1, 100); camera.position.set(0, 0.8, 3.0);
+
+  const hemi = new THREE.HemisphereLight(0x222233, 0x000000, 0.6); scene.add(hemi);
+  const dir = new THREE.DirectionalLight(0xffffff, 0.6); dir.position.set(5,5,5); scene.add(dir);
+  const rim = new THREE.PointLight(0xff2ed0, 0.6, 6); rim.position.set(-2,1.5,2); scene.add(rim);
+
+  const container = new THREE.Group(); scene.add(container);
+
+  let mesh;
+  if(shape==='torus'){ const g = new THREE.TorusKnotGeometry(0.55,0.14,160,20); mesh = new THREE.Mesh(g, createNeonMaterial(0x00ffd6)); container.add(mesh); }
+  else if(shape.includes('stackedBoxes')){ const group = new THREE.Group(); const colors = [0xff2ed0,0x00ffd6,0xff9b3d]; for(let i=0;i<3;i++){ const geo=new THREE.BoxGeometry(0.9-i*0.12,0.22,0.6-i*0.1); const m=new THREE.Mesh(geo,createNeonMaterial(colors[i])); m.position.set(0,-0.08+i*0.16,-i*0.02); group.add(m);} mesh=group; container.add(mesh); }
+  else if(shape.includes('glowingSphere')){ const g=new THREE.SphereGeometry(0.5,48,32); mesh=new THREE.Mesh(g, createNeonMaterial(shape==='glowingSphere'?0xff9b3d:0xff2ed0)); const wire=new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.56,2)), new THREE.LineBasicMaterial({color:0x00ffd6, transparent:true, opacity:0.16})); mesh.add(wire); container.add(mesh); }
+  else if(shape==='eye'){ const iris=new THREE.TorusGeometry(0.56,0.14,32,80); const irisMesh=new THREE.Mesh(iris,createNeonMaterial(0x00ffd6)); irisMesh.rotation.x=Math.PI/2; const pupil=new THREE.Mesh(new THREE.SphereGeometry(0.22,32,24), createNeonMaterial(0x0a0a0a)); pupil.position.set(0,0,-0.08); const outer=new THREE.Mesh(new THREE.SphereGeometry(0.6,32,24), new THREE.MeshStandardMaterial({color:0xffffff,opacity:0.06,transparent:true,roughness:0.1})); outer.material.depthWrite=false; container.add(irisMesh,pupil,outer); }
+  else if(shape==='ringedTorus'){ const g=new THREE.TorusGeometry(0.44,0.09,32,120); mesh=new THREE.Mesh(g,createNeonMaterial(0xff2ed0)); container.add(mesh); const ringGeo=new THREE.RingGeometry(0.8,1.1,64); const ring=new THREE.Mesh(ringGeo,new THREE.MeshBasicMaterial({color:0x00ffd6,side:THREE.DoubleSide,transparent:true,opacity:0.08})); ring.rotation.x=Math.PI/2; container.add(ring); }
+  else { const g=new THREE.TorusKnotGeometry(0.55,0.14,160,20); mesh = new THREE.Mesh(g, createNeonMaterial(0x00ffd6)); container.add(mesh); }
+
+  addGlowSprite(container, 0x8b3cff, 0.15);
+  const ground=new THREE.Mesh(new THREE.PlaneGeometry(4,4), new THREE.MeshStandardMaterial({color:0x000000, roughness:1, metalness:0, opacity:0.06, transparent:true}));
+  ground.rotation.x=-Math.PI/2; ground.position.y=-0.7; scene.add(ground);
+
+  const controls = new THREE.OrbitControls(camera, renderer.domElement); controls.enableZoom=false; controls.enablePan=false; controls.enableDamping=true; controls.dampingFactor=0.07;
+
+  let hover=false, pointerDown=false, rot=0;
+  productViewerEl.addEventListener('mouseenter', ()=> hover=true);
+  productViewerEl.addEventListener('mouseleave', ()=> hover=false);
+  productViewerEl.addEventListener('pointerdown', ()=> pointerDown=true);
+  window.addEventListener('pointerup', ()=> pointerDown=false);
+
+  const ro = new ResizeObserver(()=>{ const w2=productViewerEl.clientWidth||420; const h2=productViewerEl.clientHeight||360; camera.aspect = w2/h2; camera.updateProjectionMatrix(); renderer.setSize(w2,h2); });
+  ro.observe(productViewerEl);
+
+  let rafId=null;
+  const tick = ()=>{
+    if(!pointerDown){ rot += (hover?0.006:0.003); container.rotation.y = rot; container.rotation.x = Math.sin(rot*0.18)*0.04; }
+    controls.update(); renderer.render(scene,camera);
+    rafId = requestAnimationFrame(tick);
+  };
+
+  function dispose(){
+    if(rafId){ cancelAnimationFrame(rafId); rafId=null; }
+    try{ ro.disconnect(); }catch(e){}
+    productViewerEl && productViewerEl.removeEventListener && productViewerEl.removeEventListener('mouseenter', ()=>{}); // best-effort
+    scene.traverse(obj => { if(obj.isMesh) safeDispose(obj); });
+    try{ if(renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement); if(renderer.forceContextLoss) renderer.forceContextLoss(); renderer.dispose && renderer.dispose(); }catch(e){}
+  }
+
+  // start loop
+  tick();
+  return { dispose };
+}
+
+/* ---------- open product modal (main feature) ---------- */
+function openProductModal(item){
+  // populate fields
+  productModalTitle.textContent = item.name;
+  productPrice.textContent = item.price.toLocaleString() + ' ✦';
+  productCategory.textContent = item.category;
+  productRating.textContent = '★ ' + item.rating.toFixed(1);
+  productFullDesc.textContent = item.desc;
+
+  // prepare reviews
+  reviewsEl.innerHTML = '';
+  const nReviews = 3 + Math.floor(Math.random()*3); // 3-5
+  const revs = getRandomReviews(nReviews);
+  for(const r of revs){
+    const div = document.createElement('div'); div.className = 'review'; div.textContent = r; reviewsEl.appendChild(div);
+  }
+
+  // create viewer (lazy) with larger preview
+  createProductViewer(item.shape || 'torus');
+
+  // show modal with GSAP animation
+  productModalBackdrop.style.display = 'flex';
+  productModalBackdrop.setAttribute('aria-hidden','false');
+
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    gsap.fromTo(productModal, {scale:0.96, y:24, opacity:0}, {scale:1, y:0, opacity:1, duration:0.48, ease:'back.out(1.2)'});
+    // animate reviews one-by-one
+    const reviewNodes = Array.from(reviewsEl.querySelectorAll('.review'));
+    gsap.from(reviewNodes, {opacity:0, y:8, stagger:0.12, duration:0.42, ease:'power2.out', delay:0.22});
+  }
+
+  // focus trap: focus first actionable element
+  setTimeout(()=> productAddCartBtn.focus(), 80);
+
+  // product modal button actions
+  productAddCartBtn.onclick = () => { cartAdd(item); };
+  productBuyBtn.onclick = () => { cartAdd(item); openModal(item); };
+
+  // backdrop click closes if clicked outside modal
+  productModalBackdrop.addEventListener('click', onBackdropClick);
+  function onBackdropClick(e){
+    if(!productModal.contains(e.target)) closeProductModal();
+  }
+
+  // close handler
+  productModalClose.onclick = closeProductModal;
+
+  // ESC handler
+  document.addEventListener('keydown', escHandler);
+
+  function escHandler(e){
+    if(e.key === 'Escape') closeProductModal();
+  }
+
+  // keep these references for cleanup
+  productModalBackdrop._escHandler = escHandler;
+  productModalBackdrop._onBackdropClick = onBackdropClick;
+}
+
+/* ---------- close product modal ---------- */
+function closeProductModal(){
+  // dispose viewer
+  try{ productViewerInstance && productViewerInstance.dispose(); }catch(e){}
+  productViewerInstance = null;
+  // clear viewer DOM
+  productViewerEl.innerHTML = '';
+  // hide
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    gsap.to(productModal, {scale:0.96, y:12, opacity:0, duration:0.3, ease:'power1.in', onComplete: ()=> {
+      productModalBackdrop.style.display = 'none';
+      productModalBackdrop.setAttribute('aria-hidden','true');
+      reviewsEl.innerHTML = '';
+    }});
+  } else {
+    productModalBackdrop.style.display = 'none';
+    productModalBackdrop.setAttribute('aria-hidden','true');
+    reviewsEl.innerHTML = '';
+  }
+  // remove listeners
+  if(productModalBackdrop._onBackdropClick) productModalBackdrop.removeEventListener('click', productModalBackdrop._onBackdropClick);
+  if(productModalBackdrop._escHandler) document.removeEventListener('keydown', productModalBackdrop._escHandler);
+  productModalBackdrop._onBackdropClick = null;
+  productModalBackdrop._escHandler = null;
+}
+
+/* ---------- small util: create product viewer instance wrapper ---------- */
+function createProductViewer(shape){
+  // create and keep instance to dispose later
+  const inst = createProductViewerInstance(shape);
+  productViewerInstance = inst;
+  return inst;
+}
+function createProductViewerInstance(shape){
+  // wrapper to call the bigger createProductViewer function above
+  return createProductViewer(shape);
+}
+
+/* ---------- reviews helper (already defined) ---------- */
+// getRandomReviews() defined earlier
+
+/* ---------- final apply filters & initial render ---------- */
+applyFilters();
+
+/* ---------- reduced-motion respect for animations already included ----------
+   Note: this file augments your app; if you want me to also add deeper a11y like focus trap that keeps keyboard inside modal, I can.
+--------------------------------------------------------------------------- */
+
+</script>
+</body>
+</html>
